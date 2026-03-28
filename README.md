@@ -1,48 +1,99 @@
-This Is a Point Of Sales System for Cosmetics
+# BeautyPOS
 
-Here's how it works:
+A desktop Point of Sale application for cosmetics retail, built with Python and PyQt5. Demonstrates proficiency in GUI development, database design, data export, and desktop application architecture.
 
--After logging in, (username: admin, password: admin123) you'll see the main app, and there is a sidebar on your left with 4 buttons in form of images
-- When you hover each image(button) on the sidebar, you'll see a label displayed i.e Sales, Products, Users and Products Respectively
-- Clickng each button(image) on the sidebar will open a new page - Sales Page, Product Page, Users Page and Suppliers Page
+## Value Proposition
 
-PRODUCTS PAGE
--You can try addig a new product on the product page, which has 3 tabs, one to show all available products, the 
- 2nd tab allows you to add a new product or category by clicking the "Add category" btn which enables
-the category entry widget on thebotto right, the 3rd tab allows you to Search, Update or Delete any product 
+BeautyPOS addresses the need for a lightweight, offline-capable POS system tailored to small cosmetics businesses. It showcases ability to build polished desktop applications with Python, manage local databases, and implement business logic for inventory and sales—skills directly transferable to enterprise desktop or hybrid applications.
 
-USERS PAGE
--You can add a new user, view all existing users and also edit user details after confirming your credentials in the 
-"Login Group Box". If the login credentials are correct, the "Edit User Details Group Box" will be enabled, allowing you to edit
-the users info.
+## Core Features
 
+- Secure login system with credential validation and session management
+- Product management: add, update, search, and categorize cosmetics items
+- Supplier tracking with contact details and inventory linkage
+- Sales processing with real-time inventory deduction and total calculation
+- User management with role-based permissions for sensitive operations
+- Excel export functionality for sales reports using openpyxl
+- Intuitive PyQt5 interface with sidebar navigation and modal dialogs
 
-SUPPLIERS PAGE
-- Here you can add a new supplier and the supplier details will appear on the tables below.
--You caan also search and edit the suppliers details on the "Edit supplier's info page"
+## Technical Architecture
 
+Language: Python 3.x
+GUI Framework: PyQt5 with Qt Designer-compatible UI structure
+Database: SQLite with parameterized queries to prevent SQL injection
+Data Export: openpyxl for generating formatted Excel reports
+Icons and Assets: Qt Resource System (.qrc) for embedded assets
+Architecture: Modular design with separate files for each business domain
 
-SALES PAGE
-I saved the last for best and I beleive this is the most important part of the system, and where most of the magic happens.
--The sales page is the 1st to be loaded when the user logs in.
+## Project Structure
 
--Click the "Add New Sales" btn and a sales window will pop up.
--Here you can select the product you want to sell and on selecting, you'll see the unit price uupdated below.
-- You can confirm the "unit cost" from the "products table" in tha "products page", just to confirm 
-that the 2 are in sync.
-- While still in the "Sales Window" You can use the spinBox to increment the quantity and the total cost will be reflected and
-click "Okay" when done.
-- Once the window closes after clicking the "Okay" btn,  hit the "Refresh" btn and the product you just sold will 
-	be dispayed on the  sales table.
+BeautyPOS/
+├── gallery/              # Application icons and UI assets
+├── database.py           # SQLite connection, schema initialization
+├── login.py              # Authentication UI and logic
+├── mainfile.py           # Application entry point and main window
+├── mylogin.py            # Login form handler and validation
+├── mymasewa.py           # Supplier management module
+├── mysales.py            # Sales processing and reporting logic
+├── myusers.py            # User account management with permissions
+├── products.py           # Product catalog operations and search
+├── sales.py              # Transaction logic and inventory updates
+├── users.py              # User data models and access control
+├── icons.qrc             # Qt resource definition for icons
+├── icons_rc.py           # Compiled resource module
+└── requirements.txt      # Python dependencies
 
-- Try selling the same product again on the same day and you'll see that the changes will be reflected on the sales table, "List of all sales"
-efter you hit the "Refresh button" 
-The changes will also be reflected on the "products table" on the Product page i.e the quantity will have been deducted by the quantity you just sold
+## Setup Instructions
 
+1. Clone the repository
+   git clone https://github.com/JeffJamez/Cosmetics.git
+   cd Cosmetics
 
+2. Install dependencies
+   pip install PyQt5 openpyxl
 
+3. Run the application
+   python mainfile.py
 
-The coolest part of it all is that you can export all the sales to the desktop in form of an "Excel file" 
-once you hit the "Export as excel file" on the right
+4. Use default credentials for initial access (change before production)
+   Username: admin
+   Password: admin123
 
-			Enjoy! Thank You!
+## Key Technical Decisions
+
+- Used PyQt5 signals and slots for decoupled, event-driven UI updates
+- Implemented parameterized SQL queries to ensure database security
+- Structured business logic in separate modules to improve testability and maintenance
+- Leveraged Qt Resource System to bundle assets into a single executable-friendly package
+- Designed Excel export to preserve formatting for immediate business use
+
+## Data Integrity and Business Logic
+
+- Sales transactions automatically deduct from product inventory to prevent overselling
+- Excel exports include timestamps and itemized details for accounting reconciliation
+- User permissions restrict sensitive operations to authorized personnel only
+- Input validation at UI and database layers to ensure data quality
+
+## Why This Project Stands Out to Recruiters
+
+- Demonstrates ability to build complex desktop applications with Python—a valuable skill for internal tools, utilities, and hybrid deployments
+- Shows understanding of database design, secure coding practices, and business workflow automation
+- Clean modular architecture that is easy to extend with features like barcode scanning, receipt printing, or cloud sync
+- Practical focus on real-world usability: intuitive UI, error handling, and export functionality
+- Highlights problem-solving skills in bridging UI events, business logic, and data persistence
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: git checkout -b feature/YourFeature
+3. Commit changes: git commit -m 'Add YourFeature'
+4. Push to branch: git push origin feature/YourFeature
+5. Submit a pull request with a clear description of changes and testing steps
+
+## License
+
+MIT License. See LICENSE file for details.
+
+## Author
+
+Jeff James
